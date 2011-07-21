@@ -1,4 +1,8 @@
 Blog::Application.routes.draw do
+  resources :category_posts
+
+  resources :categories
+
   resources :posts
 
   resources :users
