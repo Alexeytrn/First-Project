@@ -1,18 +1,17 @@
 class UsersController < ApplicationController
-  # GET /users
-  # GET /users.xml
+  # Индекс
   def index
     @users = User.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @users }
-      format.yaml {render :yaml => @users.to_yaml}
+      format.xml  { render :xml => @users } #index.xml
+      format.yaml {render :yaml => @users.to_yaml} #index.yaml?
     end
   end
 
-  # GET /users/1
-  # GET /users/1.xml
+  # show 
+  # представление 1 человека
   def show
     @user = User.find(params[:id])
 
@@ -22,8 +21,8 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/new
-  # GET /users/new.xml
+  # GET new
+  # GET регистрация нового пользователя
   def new
     @user = User.new
 
@@ -33,13 +32,13 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/1/edit
+  # GET edit
+  #редактирование
   def edit
     @user = User.find(params[:id])
   end
 
-  # POST /users
-  # POST /users.xml
+  # create
   def create
     @user = User.new(params[:user])
 
@@ -54,8 +53,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # PUT /users/1
-  # PUT /users/1.xml
+  # update
   def update
     @user = User.find(params[:id])
 
@@ -70,8 +68,8 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.xml
+  # delete
+  # удаление
   def destroy
     @user = User.find(params[:id])
     @user.destroy
